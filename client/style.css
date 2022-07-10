@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root {
+    --red: #ff6c6c;
+    --blue: #6ce4ff;
+    --yellow: #fff06c;
+    --green: #85ff6c;
+
+    --win-bar: #c97e22;
+
+    --theme-main: #84A98C;
+    --theme-dark1: #5a7460;
+    --theme-dark2: #35523f;
+    --theme-text1: #e4e4e4;
+
+    --stats-height: 75px;
+    
+    --bottom-margin: 50px;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+body {
+    margin: 0;
+    background-color: var(--theme-main);
+    height: 100vh;
+    color: var(--theme-text1);
+}
+
+body #app {
+    height: 100%;
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: max-content auto var(--bottom-margin);
+}
+
+body #app .color-div {
+    grid-row: 2 / 3;
+
+    height: inherit;
+
+    display: flex;
+    flex-direction: column-reverse;
+} #red-div {
+    grid-column: 1 / 2;
+} #blue-div {
+    grid-column: 2 / 3;
+} #yellow-div {
+    grid-column: 3 / 4;
+} #green-div {
+    grid-column: 4 / 5;
+} .color-box {
+    transition: .8s;
+}
+
+body #app #win-bar {
+    grid-row: 2 / 3;
+    grid-column: 1 / -1;
+
+    font-weight: bold;
+
+    height: calc(24.75%);
+    border-bottom: 4px dashed var(--win-bar);
+}
+
+body #app #navbar-area {
+    grid-area: 1 / 1 / 2 / -1;
+
+    background-color: var(--theme-dark2);
+    height: var(--stats-height);
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+body #app #navbar-area #title {
+    grid-area: 1 / 2 / -1 / 3;
+
+    text-align: center;
+    font-size: 3rem;
+}
+
+body #app #navbar-area #buttons-area {
+    grid-area: 1 / 3 / -1 / 4;
+
+    text-align: center;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+} body #app #navbar-area #buttons-area button {
+    width: 35%;
+    margin: 0rem 0rem 0rem auto;
+    background-color: var(--theme-dark1);
+    border: 1px solid var(--theme-dark2);
+    color: inherit;
+    transition: .25s;
+} body #app #navbar-area #buttons-area button:hover {
+    cursor: pointer;
+    background-color: var(--theme-main);
+    border: 2px solid var(--theme-dark1);
+    transition: .25s;
+}
+
+body #app #bottom-margin {
+    grid-area: -2 / 1 / -1 / -1;
+
+    background-color: var(--theme-dark1);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+} .color_wins {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+body #app #win-notification {
+    grid-area: 2 / 1 / -2 / -1;
+    width: 60%;
+    height: fit-content;
+    background-color: var(--theme-dark2);
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 2rem 1rem;
+    margin: 4rem auto;
+    z-index: 3;
+    border-radius: 5px;
+} body #app .hide-notification{
+    display: none;
+} body #app .show-notification {
+    display: inline-block;
+}

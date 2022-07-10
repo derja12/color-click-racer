@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Color Click Racer</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="app">
+
+            <div id="navbar-area">
+                <div id="title">Color Click Racer</div>
+                <div id="buttons-area">
+                    <button @click="resetStatsClick">Reset Stats</button>
+                    <button @click="resetPointsClick">Reset Points</button>
+                </div>
+            </div>
+
+            <div id="win-notification" v-bind:class="{win_color:win_color, 'show-notification':win_color, 'hide-notification':!win_color}">
+                {{ win_color.replace(/^\w/, (c) => c.toUpperCase()) }} Won! Starting next round...
+            </div>
+
+            <div class="color-div" id="red-div" v-on:click="addPointsToClickWS('red')">
+                <div class="color-box" id="red-box" v-bind:style="colorStyles.red"></div>
+            </div>
+            <div class="color-div" id="blue-div" v-on:click="addPointsToClickWS('blue')">
+                <div class="color-box" id="blue-box" v-bind:style="colorStyles.blue"></div>
+            </div>
+            <div class="color-div" id="yellow-div" v-on:click="addPointsToClickWS('yellow')">
+                <div class="color-box" id="yellow-box" v-bind:style="colorStyles.yellow"></div>
+            </div>
+            <div class="color-div" id="green-div" v-on:click="addPointsToClickWS('green')">
+                <div class="color-box" id="green-box" v-bind:style="colorStyles.green"></div>
+            </div>
+
+            <div id="win-bar">
+                
+            </div>
+
+            <div id="bottom-margin">
+                <div class="color_wins">Rounds Won: {{red_wins}}</div>
+                <div class="color_wins">Rounds Won: {{blue_wins}}</div>
+                <div class="color_wins">Rounds Won: {{yellow_wins}}</div>
+                <div class="color_wins">Rounds Won: {{green_wins}}</div>
+            </div>
+
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
