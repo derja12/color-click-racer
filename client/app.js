@@ -1,4 +1,4 @@
-const SERVER_ROOT_URL = "wss://color-click-racer.herokuapp.com/";
+const SERVER_ROOT_URL = "ws://localhost:4200";
 
 var app = new Vue({
     el: '#app',
